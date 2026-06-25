@@ -1,0 +1,35 @@
+[project]
+name = "seal"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "pmw9440",email = "pmw9440@cyram.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "torch (==2.8.0)",
+    "torch-geometric (>=2.8.0,<3.0.0)",
+    "scikit-learn (==1.6.1)",
+    "certifi (>=2026.6.17,<2027.0.0)",
+    "urllib3 (>=2.7.0,<3.0.0)"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+torch_scatter = { version = "*", source = "pyg-whl" }
+torch_sparse = { version = "*", source = "pyg-whl" }
+torch_cluster = { version = "*", source = "pyg-whl" }
+torch_spline_conv = { version = "*", source = "pyg-whl" }
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "pyg-whl"
+url = "https://data.pyg.org/whl/torch-2.8.0+cpu.html"
+priority = "explicit"
+[dependency-groups]
+dev = [
+    "ipykernel (>=7.3.0,<8.0.0)"
+]

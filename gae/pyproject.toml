@@ -1,0 +1,24 @@
+[project]
+name = "gae"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "pmw9440",email = "pmw9440@cyram.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "torch (==2.8.0)"
+]
+package-mode = false  
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "pyg-whl"
+url = "https://data.pyg.org/whl/torch-2.8.0+cpu.html"
+priority = "explicit"
