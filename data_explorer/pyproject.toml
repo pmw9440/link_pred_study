@@ -1,0 +1,24 @@
+[project]
+name = "data-explorer"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "pmw9440",email = "pmw9440@cyram.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "torch (==2.5.1)",
+    "torch-geometric (==2.8.0)",
+    "ogb (>=1.3.6,<2.0.0)",
+    "jupyter (>=1.1.1,<2.0.0)",
+    "ipykernel (>=7.3.0,<8.0.0)"
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
