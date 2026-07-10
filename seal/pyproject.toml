@@ -7,13 +7,15 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "torch (==2.8.0)",
-    "torch-geometric (>=2.8.0,<3.0.0)",
+    "torch (==2.5.1)",
+    "torch-geometric (==2.5.1)",
     "scikit-learn (==1.6.1)",
     "certifi (>=2026.6.17,<2027.0.0)",
     "urllib3 (>=2.7.0,<3.0.0)",
     "jupyter (>=1.1.1,<2.0.0)",
-    "ipykernel (>=7.3.0,<8.0.0)"
+    "ipykernel (>=7.3.0,<8.0.0)",
+    "torchvision (==0.20.1)",
+    "torchaudio (==2.5.1)"
 ]
 
 [tool.poetry.dependencies]
@@ -22,15 +24,20 @@ torch_scatter = { version = "*", source = "pyg-whl" }
 torch_sparse = { version = "*", source = "pyg-whl" }
 torch_cluster = { version = "*", source = "pyg-whl" }
 torch_spline_conv = { version = "*", source = "pyg-whl" }
+torch = {source = "pytorch-cu124"}
+torchvision = {source = "pytorch-cu124"}
+torchaudio = {source = "pytorch-cu124"}
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [[tool.poetry.source]]
-name = "pyg-whl"
-url = "https://data.pyg.org/whl/torch-2.8.0+cpu.html"
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
 priority = "explicit"
+
+
 [dependency-groups]
 dev = [
     "ipykernel (>=7.3.0,<8.0.0)"
