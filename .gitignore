@@ -1,2 +1,11 @@
 seal/data
 data_explorer/dataset
+*.pt
+*.allx
+*.ally
+*.x
+*.y
+*.graph
+*.tx
+*.ty
+*.index
