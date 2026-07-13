@@ -57,3 +57,8 @@
 |    Jaccard Coeff    | 0.6534 | 0.6528 |    -     |  0.0520  |
 |      PageRank       | 0.8314 | 0.8883 |    -     | 748.0960 |
 | Resource Allocation | 0.6533 | 0.6525 |    -     |  0.0410  |
+
+<br>
+
+# OGB Leader Board
+- Link Prediction Task 벤치마크 성능표 제공 [OGB Leaderboard](https://ogb.stanford.edu/docs/leader_linkprop/) 
