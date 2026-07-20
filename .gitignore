@@ -9,3 +9,4 @@ data_explorer/dataset
 *.tx
 *.ty
 *.index
+*.pyc

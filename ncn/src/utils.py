@@ -4,6 +4,12 @@ from torch_sparse import SparseTensor
 from torch import Tensor
 import torch_sparse
 from typing import List, Tuple
+import numpy as np
+
+def set_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
 
 class PermIterator:
 
@@ -64,6 +70,34 @@ def spm2elem(spm: SparseTensor) -> Tensor:
 
     return elem
 
+def spmoverlap_(adj1: SparseTensor, adj2: SparseTensor) -> SparseTensor:
+    '''
+    Compute the overlap of neighbors (rows in adj). The returned matrix is similar to the hadamard product of adj1 and adj2
+    '''
+    assert adj1.sizes() == adj2.sizes()
+    element1 = spm2elem(adj1)
+    element2 = spm2elem(adj2)
+
+    if element2.shape[0] > element1.shape[0]:
+        element1, element2 = element2, element1
+
+    idx = torch.searchsorted(element1[:-1], element2)
+    mask = (element1[idx] == element2)
+    retelem = element2[mask]
+    '''
+    nnz1 = adj1.nnz()
+    element = torch.cat((adj1.storage.row(), adj2.storage.row()), dim=-1)
+    element.bitwise_left_shift_(32)
+    element[:nnz1] += adj1.storage.col()
+    element[nnz1:] += adj2.storage.col()
+    
+    element = torch.sort(element, dim=-1)[0]
+    mask = (element[1:] == element[:-1])
+    retelem = element[:-1][mask]
+    '''
+
+    return elem2spm(retelem, adj1.sizes())
+
 def sparsesample_reweight(adj: SparseTensor, deg: int) -> SparseTensor:
     '''
     another implementation for sampling elements from a adjacency matrix. It will aslso scale the sampeld elements
@@ -90,8 +124,13 @@ def sparsesample_reweight(adj: SparseTensor, deg: int) -> SparseTensor:
     nosamplerow, nosamplecol = adj[mask].coo()[:2]
     nosamplerow = torch.arange(adj.size(0), device=adj.device())[mask][nosamplerow]
 
-    ret = SparseTensor(row=torch.cat((samplerow, nosample)), col=torch.cat((samplecol, nosamplecol)), value=torch.cat((samplevalue, torch.one_like(nosamplerow))), sparse_sizes=adj.sparse_sizes()).to_device(
-        adj.device()).coalesce()
+    ret = SparseTensor(row=torch.cat((samplerow, nosamplerow)),
+                       col=torch.cat((samplecol, nosamplecol)),
+                       value=torch.cat((samplevalue,
+                                        torch.ones_like(nosamplerow))),
+                       sparse_sizes=adj.sparse_sizes()).to_device(
+                           adj.device()).coalesce()  #.fill_value_(1)
+    #assert (ret.sum(dim=-1) == torch.clip(adj.sum(dim=-1), 0, deg)).all()
     return ret
 
 def spmoverlap_notoverlap_(
@@ -120,17 +159,11 @@ def spmoverlap_notoverlap_(
         retelem2 = element2[torch.logical_not(matchedmask)]
 
     sizes = adj1.sizes()
-    return elem2spm(retoverlap, sizes), elem2spm(retelem1, sizses), elem2spm(retelem2, sizes)
-
-
-
-
+    return elem2spm(retoverlap, sizes), elem2spm(retelem1, sizes), elem2spm(retelem2, sizes)
 
 
 
     
-
-
 
 def adjoverlap(adj1: SparseTensor,
                adj2: SparseTensor,
@@ -139,28 +172,22 @@ def adjoverlap(adj1: SparseTensor,
                calresadj: bool = False,
                cnsampledeg: int = -1,
                ressampledeg: int = -1):
-    # a wrapper for function above.
+    # a wrapper for functions above.
     adj1 = adj1[tarei[0]]
     adj2 = adj2[tarei[1]]
     if calresadj:
         adjoverlap, adjres1, adjres2 = spmoverlap_notoverlap_(adj1, adj2)
         if cnsampledeg > 0:
             adjoverlap = sparsesample_reweight(adjoverlap, cnsampledeg)
-
         if ressampledeg > 0:
             adjres1 = sparsesample_reweight(adjres1, ressampledeg)
             adjres2 = sparsesample_reweight(adjres2, ressampledeg)
-
-        return adjoverlap, adjres1, adjRes2
+        return adjoverlap, adjres1, adjres2
     else:
         adjoverlap = spmoverlap_(adj1, adj2)
         if cnsampledeg > 0:
             adjoverlap = sparsesample_reweight(adjoverlap, cnsampledeg)
-        
-
-
-
-
+    return adjoverlap
 
 
 
