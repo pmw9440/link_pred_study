@@ -23,46 +23,46 @@
 
 # Leader Board
 ## Cora
-| 카테고리  |       모델명        |  AUC   |   AP   | GPU Time | CPU TIme | update date |  
-| :-------: | :-----------------: | :----: | :----: | :------: | :------: | :---------: |
-|   Embed   |         GAE         | 0.8536 | 0.8780 |  3.156   |  3.6101  |             |
-|   Embed   |        VGAE         | 0.8694 | 0.8908 |  3.186   |  4.722   |             |
-| Subgraph  |        SEAL         | 0.5477 | 0.5527 |    -     |  145.09  |             |
-|    NCN    |         NCN         | 0.9375 | 0.9426 |  12.86   |    -     | 2026-07-19  |
-|    NCN    |        NCNC         | 0.9398 | 0.9436 |  36.53   |    -     | 2026-07-19  |
-| Heuristic |     adamic-Adar     | 0.7265 | 0.7282 |    -     |  0.0080  |             |
-| Heuristic |    Jaccard Coeff    | 0.7250 | 0.7228 |    -     |  0.0090  |             |
-| Heuristic |      PageRank       | 0.8560 | 0.9000 |    -     |  8.4718  |             |
-| Heuristic | Resource Allocation | 0.7264 | 0.7281 |    -     |  0.0080  |             |
+| 카테고리  |       모델명        |  AUC   |   AP   | GPU Time | CPU TIme | update date |                논문 링크                 |
+| :-------: | :-----------------: | :----: | :----: | :------: | :------: | :---------: | :--------------------------------------: |
+|   Embed   |         GAE         | 0.8536 | 0.8780 |  3.156   |  3.6101  |             | [논문](https://arxiv.org/pdf/1611.07308) |
+|   Embed   |        VGAE         | 0.8694 | 0.8908 |  3.186   |  4.722   |             | [논문](https://arxiv.org/pdf/1611.07308) |
+| Subgraph  |        SEAL         | 0.5477 | 0.5527 |    -     |  145.09  |             | [논문](https://arxiv.org/pdf/1802.09691) |
+|    NCN    |         NCN         | 0.9375 | 0.9426 |  12.86   |    -     | 2026-07-19  | [논문](https://arxiv.org/pdf/2302.00890) |
+|    NCN    |        NCNC         | 0.9398 | 0.9436 |  36.53   |    -     | 2026-07-19  | [논문](https://arxiv.org/pdf/2302.00890) |
+| Heuristic |     adamic-Adar     | 0.7265 | 0.7282 |    -     |  0.0080  |             |                                          |
+| Heuristic |    Jaccard Coeff    | 0.7250 | 0.7228 |    -     |  0.0090  |             |                                          |
+| Heuristic |      PageRank       | 0.8560 | 0.9000 |    -     |  8.4718  |             |                                          |
+| Heuristic | Resource Allocation | 0.7264 | 0.7281 |    -     |  0.0080  |             |                                          |
 <br>
 
 ## CiteSeer
-| 카테고리  |       모델명        |  AUC   |   AP   | GPU Time | CPU TIme | update date |
-| :-------: | :-----------------: | :----: | :----: | :------: | :------: | :---------: |
-|   Embed   |         GAE         | 0.8828 | 0.9039 |  2.9700  |  4.7543  |             |
-|   Embed   |        VGAE         | 0.8518 | 0.8823 |  3.4090  |  5.8767  |             |
-| Subgraph  |        SEAL         | 0.5476 | 0.6050 |    -     | 129.787  |             |
-|    NCN    |         NCN         | 0.8873 | 0.9120 | 10.5191  |    -     | 2026-07-19  |
-|    NCN    |        NCNC         | 0.9067 | 0.9221 |  29.78   |    -     | 2026-07-19  |
-| Heuristic |     adamic-Adar     | 0.6901 | 0.6901 |    -     |  0.0080  |             |
-| Heuristic |    Jaccard Coeff    | 0.6901 | 0.6901 |    -     |  0.0070  |             |
-| Heuristic |      PageRank       | 0.7256 | 0.8315 |    -     |  7.6797  |             |
-| Heuristic | Resource Allocation | 0.6901 | 0.6901 |    -     |  0.0050  |             |
+| 카테고리  |       모델명        |  AUC   |   AP   | GPU Time | CPU TIme | update date |                논문 링크                 |
+| :-------: | :-----------------: | :----: | :----: | :------: | :------: | :---------: | :--------------------------------------: |
+|   Embed   |         GAE         | 0.8828 | 0.9039 |  2.9700  |  4.7543  |             | [논문](https://arxiv.org/pdf/1611.07308) |
+|   Embed   |        VGAE         | 0.8518 | 0.8823 |  3.4090  |  5.8767  |             | [논문](https://arxiv.org/pdf/1611.07308) |
+| Subgraph  |        SEAL         | 0.5476 | 0.6050 |    -     | 129.787  |             | [논문](https://arxiv.org/pdf/1802.09691) |
+|    NCN    |         NCN         | 0.8873 | 0.9120 | 10.5191  |    -     | 2026-07-19  | [논문](https://arxiv.org/pdf/2302.00890) |
+|    NCN    |        NCNC         | 0.9067 | 0.9221 |  29.78   |    -     | 2026-07-19  | [논문](https://arxiv.org/pdf/2302.00890) |
+| Heuristic |     adamic-Adar     | 0.6901 | 0.6901 |    -     |  0.0080  |             |                                          |
+| Heuristic |    Jaccard Coeff    | 0.6901 | 0.6901 |    -     |  0.0070  |             |                                          |
+| Heuristic |      PageRank       | 0.7256 | 0.8315 |    -     |  7.6797  |             |                                          |
+| Heuristic | Resource Allocation | 0.6901 | 0.6901 |    -     |  0.0050  |             |                                          |
 
 <br>
 
 ## Pubmed
-| 카테고리  |       모델명        |  AUC   |   AP   | GPU Time | CPU TIme | update date |
-| :-------: | :-----------------: | :----: | :----: | :------: | :------: | :---------: |
-|   Embed   |         GAE         | 0.9515 | 0.9532 | 11.5376  | 14.6207  |             |
-|   Embed   |        VGAE         | 0.9286 | 0.9306 | 12.7891  | 17.5465  |             |
-| Subgraph  |        SEAL         | 0.5476 | 0.6050 |    -     | 129.787  |             |
-|    NCN    |         NCN         | 0.9807 | 0.9786 | 126.8518 |    -     | 2026-07-19  |
-|    NCN    |        NCNC         | 0.9808 | 0.9779 | 340.04   |    -     | 2026-07-19  |
-| Heuristic |     adamic-Adar     | 0.6534 | 0.6531 |    -     |  0.0340  |             |
-| Heuristic |    Jaccard Coeff    | 0.6534 | 0.6528 |    -     |  0.0520  |             |
-| Heuristic |      PageRank       | 0.8314 | 0.8883 |    -     | 748.0960 |             |
-| Heuristic | Resource Allocation | 0.6533 | 0.6525 |    -     |  0.0410  |             |
+| 카테고리  |       모델명        |  AUC   |   AP   | GPU Time | CPU TIme | update date |                논문 링크                 |
+| :-------: | :-----------------: | :----: | :----: | :------: | :------: | :---------: | :--------------------------------------: |
+|   Embed   |         GAE         | 0.9515 | 0.9532 | 11.5376  | 14.6207  |             | [논문](https://arxiv.org/pdf/1611.07308) |
+|   Embed   |        VGAE         | 0.9286 | 0.9306 | 12.7891  | 17.5465  |             | [논문](https://arxiv.org/pdf/1611.07308) |
+| Subgraph  |        SEAL         | 0.5476 | 0.6050 |    -     | 129.787  |             | [논문](https://arxiv.org/pdf/1802.09691) |
+|    NCN    |         NCN         | 0.9807 | 0.9786 | 126.8518 |    -     | 2026-07-19  | [논문](https://arxiv.org/pdf/2302.00890) |
+|    NCN    |        NCNC         | 0.9808 | 0.9779 |  340.04  |    -     | 2026-07-19  | [논문](https://arxiv.org/pdf/2302.00890) |
+| Heuristic |     adamic-Adar     | 0.6534 | 0.6531 |    -     |  0.0340  |             |                                          |
+| Heuristic |    Jaccard Coeff    | 0.6534 | 0.6528 |    -     |  0.0520  |             |                                          |
+| Heuristic |      PageRank       | 0.8314 | 0.8883 |    -     | 748.0960 |             |                                          |
+| Heuristic | Resource Allocation | 0.6533 | 0.6525 |    -     |  0.0410  |             |                                          |
 
 <br>
 
